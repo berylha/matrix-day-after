@@ -1,0 +1,64 @@
+@import url('https://fonts.googleapis.com/css2?family=Courier+Prime&display=swap');
+
+body {
+	background-color: black;
+	color: #1dc503;
+	font-family: 'Courier Prime', monospace;
+	font-size: 25px;
+	letter-spacing: .15em;
+	margin: 4%;
+}
+
+span.wrap {
+	border-right: 0.8em solid #1dc503
+}
+
+div.matrix-wrapper {
+    display: inline-block;
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+}
+.matrix {
+    position: relative;
+}
+.matrix:before, .matrix:after {
+    content: "";
+    position: absolute;
+    top: 0;
+    border: 1px solid #1dc503;
+    width: 6px;
+    height: 100%;
+}
+.matrix:before {
+    left: -12px;
+    border-right: 0;
+    margin-left: 16px;
+}
+.matrix:after {
+    right: -12px;
+    border-left: 0;
+    margin-right: 16px;
+}
+.matrix td {
+    padding: 8px 16px;
+    text-align: center;
+}
+
+form {
+    padding: 48px;
+    position: relative;
+    left: 50%;
+    transform: translatex(-50%);
+    text-align: center;
+}
+input {
+    font-family: inherit;
+    font-size: inherit;
+    color: inherit;
+    background-color: inherit;
+    border: none;
+    padding: 8px;
+    width : 320px;
+}
+

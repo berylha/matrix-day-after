@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<title>The Day After: The Matrix</title>
+		<meta charset='UTF-8'>
+		<meta name='viewport' content='width=device-width, initial-scale=1'>
+		<link rel='stylesheet' href='assets/style.css'>
+	</head>
+
+	<body>
+		<script>
+			var username = prompt('Type your name to enter the Matrix');
+			if (username != '') {
+				localStorage.setItem('username', username);
+			} else {
+				localStorage.setItem('username', 'Frosh');
+			}
+		</script>
+
+		<p>
+		<a class='typewrite' data-period='2000' data-type='[ "Wake up, Frosh...", "The Matrix has you...", "Follow the white rabbit.", "Knock, knock, Frosh." ]'>
+
+			<span class="wrap"></span>
+		</a>
+		</p>
+
+		<script src='assets/typing.js'></script>
+
+	</body>
+
+</html>
