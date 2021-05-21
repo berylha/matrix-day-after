@@ -14,7 +14,7 @@ span.wrap {
 }
 
 div.matrix-wrapper {
-    display: inline-block;
+    display: none;
     position: relative;
     left: 50%;
     transform: translateX(-50%);
