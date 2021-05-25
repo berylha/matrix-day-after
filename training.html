@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<title>The Day After: The Matrix</title>
+		<meta charset='UTF-8'>
+		<meta name='viewport' content='width=device-width, initial-scale=1'>
+		<link rel='stylesheet' href='assets/style.css'>
+        <script src='https://kit.fontawesome.com/3040b6fc20.js' crossorigin='anonymous'></script>
+	</head>
+
+    <body onload='checkVisible()'>
+       
+        <div>
+            <p>Download the following skills to prepare to escape the Matrix.</p>
+        </div>
+
+        <div id='form-wrapper'>
+
+            <form name='form_1' id='f1' onsubmit='checkAnswer()'>
+                <label for='kungfu'><a href='kungfu.html'><i class='fas fa-download'></i>Kung Fu:</a> </label>
+                <input type='text' id='kungfu' name='answer' style='border-bottom-style:dashed'>
+                <input type='submit' id='s1' value='Check Answer'> 
+            </form>
+
+            <form name='form_2' id='f2' onsubmit='checkAnswer()'>
+                <label for='dejavu'><a href='dejavu.html'><i class='fas fa-download'></i>Deja Vu:</a> </label>
+                <input type='text' id='dejavu' name='answer' style='border-bottom-style:dashed'>
+                <input type='submit' id='s2' value='Check Answer'> 
+            </form>
+
+            <form name='form_3' id='f3' onsubmit='checkAnswer()'>
+                <label for='taxes'><a href='taxes.html'><i class='fas fa-download'></i>Taxes:</a> </label>
+                <input type='text' id='taxes' name='answer' style='border-bottom-style:dashed'>
+                <input type='submit' id='s3' value='Check Answer'> 
+            </form>
+
+            <form name='form_4' id='f4' onsubmit='checkAnswer()'>
+                <label for='stonks'><a href='stonks.html'><i class='fas fa-download'></i>Stonks:</a> </label>
+                <input type='text' id='stonks' name='answer' style='border-bottom-style:dashed'>
+                <input type='submit' id='s4' value='Check Answer'> 
+            </form>
+
+            <form name='form_5' id='f5' onsubmit='checkAnswer()'>
+                <label for='code'><a href='code.html'><i class='fas fa-download'></i>Code:</a> </label>
+                <input type='text' id='code' name='answer' style='border-bottom-style:dashed'>
+                <input type='submit' id='s5' value='Check Answer'> 
+            </form>
+
+            <form name='form_6' id='f6' onsubmit='checkAnswer()'>
+                <label for='agents'><a href='agents.html'><i class='fas fa-download'></i>Agents:</a> </label>
+                <input type='text' id='agents' name='answer' style='border-bottom-style:dashed'>
+                <input type='submit' id='s6' value='Check Answer'> 
+            </form>
+
+        </div>
+
+        <script>
+
+            function checkAnswer() {
+                if (localStorage.getItem('f1_answer') != 'correct' && document.forms['form_1']['answer'].value == 'test') {
+				    localStorage.setItem('f1_answer', 'correct');
+                    document.getElementById('f2').style.display = 'inline-block';
+                    alert('Correct!\nUnlocked Deja Vu puzzle.');
+                }
+                if (localStorage.getItem('f2_answer') != 'correct' && document.forms['form_2']['answer'].value == 'test') {
+				    localStorage.setItem('f2_answer', 'correct');
+                    alert('Correct!');
+                }
+                if (localStorage.getItem('f3_answer') != 'correct' && document.forms['form_3']['answer'].value == 'test') {
+				    localStorage.setItem('f3_answer', 'correct');
+                    document.getElementById('f4').style.display = 'inline-block';
+                    alert('Correct!\nUnlocked Stonks puzzle.');
+                }
+                if (localStorage.getItem('f4_answer') != 'correct' && document.forms['form_4']['answer'].value == 'test') {
+				    localStorage.setItem('f4_answer', 'correct');
+                    alert('Correct!');
+                }
+                if (localStorage.getItem('f5_answer') != 'correct' && document.forms['form_5']['answer'].value == 'test') {
+				    localStorage.setItem('f5_answer', 'correct');
+                    document.getElementById('f6').style.display = 'inline-block';
+                    alert('Correct!\nUnlocked Agents puzzle.');
+                }
+                if (localStorage.getItem('f6_answer') != 'correct' && document.forms['form_6']['answer'].value == 'test') {
+				    localStorage.setItem('f6_answer', 'correct');
+                    alert('Correct!');
+                }
+                return false;
+            }
+            
+            function checkVisible() {
+                var ii = 0;
+                if (localStorage.getItem('f1_answer') == 'correct') {
+                    ii++;
+                    document.getElementById('f2').style.display = 'inline-block';
+                    document.querySelector('input#kungfu').replaceWith('COMPLETE');
+                    document.getElementById('s1').style.display = 'none';
+                } else {
+                    document.getElementById('f2').style.display = 'none';
+                }
+                if (localStorage.getItem('f2_answer') == 'correct') {
+                    ii++;
+                    document.querySelector('input#dejavu').replaceWith('COMPLETE');
+                    document.getElementById('s2').style.display = 'none';
+                }
+                if (localStorage.getItem('f3_answer') == 'correct') {
+                    ii++;
+                    document.getElementById('f4').style.display = 'inline-block';
+                    document.querySelector('input#taxes').replaceWith('COMPLETE');
+                    document.getElementById('s3').style.display = 'none';
+                } else {
+                    document.getElementById('f4').style.display = 'none';
+                }
+                if (localStorage.getItem('f4_answer') == 'correct') {
+                    ii++;
+                    document.querySelector('input#stonks').replaceWith('COMPLETE');
+                    document.getElementById('s4').style.display = 'none';
+                }
+                if (localStorage.getItem('f5_answer') == 'correct') {
+                    ii++;
+                    document.getElementById('f6').style.display = 'inline-block';
+                    document.querySelector('input#code').replaceWith('COMPLETE');
+                    document.getElementById('s5').style.display = 'none';
+                } else {
+                    document.getElementById('f6').style.display = 'none';
+                }
+                if (localStorage.getItem('f6_answer') == 'correct') {
+                    ii++;
+                    document.querySelector('input#agents').replaceWith('COMPLETE');
+                    document.getElementById('s6').style.display = 'none';
+                }
+                if (ii==6) {
+                    window.location.href='nextpage.html';
+                }
+            }
+
+        </script>
+
+    </body>
+
+</html>
+

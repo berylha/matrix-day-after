@@ -9,6 +9,10 @@ body {
 	margin: 4%;
 }
 
+a {
+    color: #1dc503;
+}
+
 span.wrap {
 	border-right: 0.8em solid #1dc503
 }
@@ -60,5 +64,11 @@ input {
     border: none;
     padding: 8px;
     width : 320px;
+}
+
+#form-wrapper form {
+    text-align: left;
+    left: 0;
+    transform: none;
 }
 
