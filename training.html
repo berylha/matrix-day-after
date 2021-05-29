@@ -82,7 +82,9 @@
                     document.getElementById('f6').style.display = 'inline-block';
                     alert('Correct!\nUnlocked Identify Agents puzzle.');
                 }
-                if (localStorage.getItem('f6_answer') != 'correct' && document.forms['form_6']['answer'].value == 'test') {
+                if (localStorage.getItem('f6_answer') != 'correct' && 
+                                (document.forms['form_6']['answer'].value == 'pandemic'
+                                            || document.forms['form_6']['answer'].value == 'PANDEMIC') ) {
 				    localStorage.setItem('f6_answer', 'correct');
                     alert('Correct!');
                 }
