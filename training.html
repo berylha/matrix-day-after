@@ -11,8 +11,14 @@
     <body onload='checkVisible()'>
        
         <div>
-            <p>Download the following skills to prepare to escape the Matrix.</p>
+            <p id='introtext'></p>
         </div>
+
+        <script>
+            var introtxt = "Welcome to the Matrix, Frosh. Now that you're aware of its existence, the agents will be looking for you. Download the following skills to prepare to escape the Matrix."
+            var newtxt = introtxt.replace('Frosh', localStorage.getItem('username'));
+            document.getElementById('introtext').innerHTML = newtxt
+        </script>
 
         <div id='form-wrapper'>
 
@@ -78,8 +84,8 @@
                     alert('Correct!\nUnlocked Financial Literacy puzzle.');
                 }
                 if (localStorage.getItem('f4_answer') != 'correct' &&
-                                (document.forms['form_4']['answer'].value == 'test' 
-                                            || document.forms['form_4']['answer'].value == 'TEST') ) {
+                                (document.forms['form_4']['answer'].value == 'yahoo' 
+                                            || document.forms['form_4']['answer'].value == 'YAHOO') ) {
 				    localStorage.setItem('f4_answer', 'correct');
                     alert('Correct!');
                 }
