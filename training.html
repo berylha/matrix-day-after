@@ -23,14 +23,14 @@
             </form>
 
             <form name='form_2' id='f2' onsubmit='checkAnswer()'>
-                <label for='booksmarts'><a href='puzzles/booksmarts.pdf' target='_blank'><i class='fas fa-download'></i>Booksmarts:</a> </label>
-                <input type='text' id='booksmarts' name='answer' style='border-bottom-style:dashed'>
+                <label for='kungfu2'><a href='puzzles/kungfu2.pdf' target='_blank'><i class='fas fa-download'></i>Kung Fu pt. 2:</a> </label>
+                <input type='text' id='kungfu2' name='answer' style='border-bottom-style:dashed'>
                 <input type='submit' id='s2' value='Check Answer'> 
             </form>
-
+            
             <form name='form_3' id='f3' onsubmit='checkAnswer()'>
-                <label for='camouflage'><a href='puzzles/camouflage.pdf' target='_blank'><i class='fas fa-download'></i>Camouflage:</a> </label>
-                <input type='text' id='camouflage' name='answer' style='border-bottom-style:dashed'>
+                <label for='booksmarts'><a href='puzzles/booksmarts.pdf' target='_blank'><i class='fas fa-download'></i>Book Smarts:</a> </label>
+                <input type='text' id='booksmarts' name='answer' style='border-bottom-style:dashed'>
                 <input type='submit' id='s3' value='Check Answer'> 
             </form>
 
@@ -57,27 +57,35 @@
         <script>
 
             function checkAnswer() {
-                if (localStorage.getItem('f1_answer') != 'correct' && document.forms['form_1']['answer'].value == 'test') {
+                if (localStorage.getItem('f1_answer') != 'correct' &&
+                                (document.forms['form_1']['answer'].value == 'kung fu panda' 
+                                            || document.forms['form_1']['answer'].value == 'KUNG FU PANDA') ) {
 				    localStorage.setItem('f1_answer', 'correct');
                     document.getElementById('f2').style.display = 'inline-block';
-                    alert('Correct!\nUnlocked Booksmarts puzzle.');
+                    alert('Correct!\nUnlocked Kung Fu pt. 2.');
                 }
-                if (localStorage.getItem('f2_answer') != 'correct' && document.forms['form_2']['answer'].value == 'test') {
+                if (localStorage.getItem('f2_answer') != 'correct' && 
+                                (document.forms['form_2']['answer'].value == 'let go' 
+                                            || document.forms['form_2']['answer'].value == 'LET GO') ) {
 				    localStorage.setItem('f2_answer', 'correct');
                     alert('Correct!');
                 }
-                if (localStorage.getItem('f3_answer') != 'correct' && document.forms['form_3']['answer'].value == 'test') {
+                if (localStorage.getItem('f3_answer') != 'correct' && 
+                                (document.forms['form_3']['answer'].value == 'anagram' 
+                                            || document.forms['form_3']['answer'].value == 'ANAGRAM') ) {
 				    localStorage.setItem('f3_answer', 'correct');
                     document.getElementById('f4').style.display = 'inline-block';
                     alert('Correct!\nUnlocked Financial Literacy puzzle.');
                 }
-                if (localStorage.getItem('f4_answer') != 'correct' && document.forms['form_4']['answer'].value == 'test') {
+                if (localStorage.getItem('f4_answer') != 'correct' &&
+                                (document.forms['form_4']['answer'].value == 'test' 
+                                            || document.forms['form_4']['answer'].value == 'TEST') ) {
 				    localStorage.setItem('f4_answer', 'correct');
                     alert('Correct!');
                 }
                 if (localStorage.getItem('f5_answer') != 'correct' && 
                                 (document.forms['form_5']['answer'].value == 'deja vu' 
-                                                || document.forms['form_5']['answer'].value == 'DEJA VU') ) {
+                                            || document.forms['form_5']['answer'].value == 'DEJA VU') ) {
 				    localStorage.setItem('f5_answer', 'correct');
                     document.getElementById('f6').style.display = 'inline-block';
                     alert('Correct!\nUnlocked Identify Agents puzzle.');
@@ -103,13 +111,13 @@
                 }
                 if (localStorage.getItem('f2_answer') == 'correct') {
                     ii++;
-                    document.querySelector('input#booksmarts').replaceWith('COMPLETE');
+                    document.querySelector('input#kungfu2').replaceWith('COMPLETE');
                     document.getElementById('s2').style.display = 'none';
                 }
                 if (localStorage.getItem('f3_answer') == 'correct') {
                     ii++;
                     document.getElementById('f4').style.display = 'inline-block';
-                    document.querySelector('input#camouflage').replaceWith('COMPLETE');
+                    document.querySelector('input#booksmarts').replaceWith('COMPLETE');
                     document.getElementById('s3').style.display = 'none';
                 } else {
                     document.getElementById('f4').style.display = 'none';
