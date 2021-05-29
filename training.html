@@ -17,37 +17,37 @@
         <div id='form-wrapper'>
 
             <form name='form_1' id='f1' onsubmit='checkAnswer()'>
-                <label for='kungfu'><a href='kungfu.html'><i class='fas fa-download'></i>Kung Fu:</a> </label>
+                <label for='kungfu'><a href='puzzles/kungfu.pdf' target='_blank'><i class='fas fa-download'></i>Kung Fu:</a> </label>
                 <input type='text' id='kungfu' name='answer' style='border-bottom-style:dashed'>
                 <input type='submit' id='s1' value='Check Answer'> 
             </form>
 
             <form name='form_2' id='f2' onsubmit='checkAnswer()'>
-                <label for='dejavu'><a href='dejavu.html'><i class='fas fa-download'></i>Deja Vu:</a> </label>
-                <input type='text' id='dejavu' name='answer' style='border-bottom-style:dashed'>
+                <label for='booksmarts'><a href='puzzles/booksmarts.pdf' target='_blank'><i class='fas fa-download'></i>Booksmarts:</a> </label>
+                <input type='text' id='booksmarts' name='answer' style='border-bottom-style:dashed'>
                 <input type='submit' id='s2' value='Check Answer'> 
             </form>
 
             <form name='form_3' id='f3' onsubmit='checkAnswer()'>
-                <label for='taxes'><a href='taxes.html'><i class='fas fa-download'></i>Taxes:</a> </label>
-                <input type='text' id='taxes' name='answer' style='border-bottom-style:dashed'>
+                <label for='camouflage'><a href='puzzles/camouflage.pdf' target='_blank'><i class='fas fa-download'></i>Camouflage:</a> </label>
+                <input type='text' id='camouflage' name='answer' style='border-bottom-style:dashed'>
                 <input type='submit' id='s3' value='Check Answer'> 
             </form>
 
             <form name='form_4' id='f4' onsubmit='checkAnswer()'>
-                <label for='stonks'><a href='stonks.html'><i class='fas fa-download'></i>Stonks:</a> </label>
-                <input type='text' id='stonks' name='answer' style='border-bottom-style:dashed'>
+                <label for='financial'><a href='puzzles/financial.pdf' target='_blank'><i class='fas fa-download'></i>Financial Literacy:</a> </label>
+                <input type='text' id='financial' name='answer' style='border-bottom-style:dashed'>
                 <input type='submit' id='s4' value='Check Answer'> 
             </form>
 
             <form name='form_5' id='f5' onsubmit='checkAnswer()'>
-                <label for='code'><a href='code.html'><i class='fas fa-download'></i>Code:</a> </label>
-                <input type='text' id='code' name='answer' style='border-bottom-style:dashed'>
+                <label for='reading'><a href='puzzles/reading.pdf' target='_blank'><i class='fas fa-download'></i>Reading the Matrix:</a> </label>
+                <input type='text' id='reading' name='answer' style='border-bottom-style:dashed'>
                 <input type='submit' id='s5' value='Check Answer'> 
             </form>
 
             <form name='form_6' id='f6' onsubmit='checkAnswer()'>
-                <label for='agents'><a href='agents.html'><i class='fas fa-download'></i>Agents:</a> </label>
+                <label for='agents'><a href='puzzles/agents.pdf' target='_blank'><i class='fas fa-download'></i>Identify Agents:</a> </label>
                 <input type='text' id='agents' name='answer' style='border-bottom-style:dashed'>
                 <input type='submit' id='s6' value='Check Answer'> 
             </form>
@@ -60,7 +60,7 @@
                 if (localStorage.getItem('f1_answer') != 'correct' && document.forms['form_1']['answer'].value == 'test') {
 				    localStorage.setItem('f1_answer', 'correct');
                     document.getElementById('f2').style.display = 'inline-block';
-                    alert('Correct!\nUnlocked Deja Vu puzzle.');
+                    alert('Correct!\nUnlocked Booksmarts puzzle.');
                 }
                 if (localStorage.getItem('f2_answer') != 'correct' && document.forms['form_2']['answer'].value == 'test') {
 				    localStorage.setItem('f2_answer', 'correct');
@@ -69,16 +69,18 @@
                 if (localStorage.getItem('f3_answer') != 'correct' && document.forms['form_3']['answer'].value == 'test') {
 				    localStorage.setItem('f3_answer', 'correct');
                     document.getElementById('f4').style.display = 'inline-block';
-                    alert('Correct!\nUnlocked Stonks puzzle.');
+                    alert('Correct!\nUnlocked Financial Literacy puzzle.');
                 }
                 if (localStorage.getItem('f4_answer') != 'correct' && document.forms['form_4']['answer'].value == 'test') {
 				    localStorage.setItem('f4_answer', 'correct');
                     alert('Correct!');
                 }
-                if (localStorage.getItem('f5_answer') != 'correct' && document.forms['form_5']['answer'].value == 'test') {
+                if (localStorage.getItem('f5_answer') != 'correct' && 
+                                (document.forms['form_5']['answer'].value == 'deja vu' 
+                                                || document.forms['form_5']['answer'].value == 'DEJA VU') ) {
 				    localStorage.setItem('f5_answer', 'correct');
                     document.getElementById('f6').style.display = 'inline-block';
-                    alert('Correct!\nUnlocked Agents puzzle.');
+                    alert('Correct!\nUnlocked Identify Agents puzzle.');
                 }
                 if (localStorage.getItem('f6_answer') != 'correct' && document.forms['form_6']['answer'].value == 'test') {
 				    localStorage.setItem('f6_answer', 'correct');
@@ -99,26 +101,26 @@
                 }
                 if (localStorage.getItem('f2_answer') == 'correct') {
                     ii++;
-                    document.querySelector('input#dejavu').replaceWith('COMPLETE');
+                    document.querySelector('input#booksmarts').replaceWith('COMPLETE');
                     document.getElementById('s2').style.display = 'none';
                 }
                 if (localStorage.getItem('f3_answer') == 'correct') {
                     ii++;
                     document.getElementById('f4').style.display = 'inline-block';
-                    document.querySelector('input#taxes').replaceWith('COMPLETE');
+                    document.querySelector('input#camouflage').replaceWith('COMPLETE');
                     document.getElementById('s3').style.display = 'none';
                 } else {
                     document.getElementById('f4').style.display = 'none';
                 }
                 if (localStorage.getItem('f4_answer') == 'correct') {
                     ii++;
-                    document.querySelector('input#stonks').replaceWith('COMPLETE');
+                    document.querySelector('input#financial').replaceWith('COMPLETE');
                     document.getElementById('s4').style.display = 'none';
                 }
                 if (localStorage.getItem('f5_answer') == 'correct') {
                     ii++;
                     document.getElementById('f6').style.display = 'inline-block';
-                    document.querySelector('input#code').replaceWith('COMPLETE');
+                    document.querySelector('input#reading').replaceWith('COMPLETE');
                     document.getElementById('s5').style.display = 'none';
                 } else {
                     document.getElementById('f6').style.display = 'none';
